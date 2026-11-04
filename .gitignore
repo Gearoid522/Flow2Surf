@@ -1,0 +1,17 @@
+data/
+docs/
+raw/
+archive/
+checkpoints/
+logs/
+results/
+
+*.pkl
+*.pt
+*.pth
+*.ckpt
+
+__pycache__/
+*.pyc
+
+.vscode/

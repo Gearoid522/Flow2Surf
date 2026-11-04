@@ -1,0 +1,48 @@
+# -- Data ----------------------------------------------------------------------
+noise_type: gaussian            # gaussian | laplace
+noise_std_range: [0.005, 0.020] # coordinate std interval
+noise_std_sampling: linear      # linear | log
+patch_size: 1024                # points per patch
+patches_per_cloud: 512          # patch items per clean cloud per epoch
+scale_range: [0.8, 1.2]         # coordinate scale augmentation
+
+# -- Model ----------------------------------------------------------------------
+feat_dim: 192                # hidden feature width
+encoder_dims: [64, 128]      # neighbor encoder widths
+k_neighbors: 32              # neighbor count
+num_blocks: 3                # transformer block count
+alpha_dim: 16                # shared alpha feature width
+ffn_ratio: 4
+decoder_dims: [128, 64]
+
+# -- Loss -----------------------------------------------------------------------
+geometry_weight: 0.005       # point-set geometry loss weight
+dcd_alpha: 8000              # DCD kernel sharpness
+
+# -- Training -------------------------------------------------------------------
+epochs: 150
+batch_size: 64               # patches per batch
+
+lr: 0.0005
+lr_min: 0.00001
+warmup_epochs: 5
+pretrain_epochs: 100         # first cosine schedule; refinement follows
+refine_lr: 0.00003           # refinement peak learning rate
+
+weight_decay: 0.0001
+grad_clip: 0.5               # max grad norm; 0 disables
+ema_decay: 0.999             # per-step; 0 disables
+
+seed: 42
+num_workers: 8
+log_interval: 100
+checkpoint_interval: 10      # save every N epochs + final
+
+# -- Inference ------------------------------------------------------------------
+num_steps: 3                 # reverse-flow steps per pass
+alpha_clean_power: 3         # clean-end schedule exponent
+alpha_noisy_power: 3         # noisy-end schedule exponent
+seed_k: 24                   # inference patch density
+patch_agg_beta: 2            # center vote falloff
+inference_chunks: 8          # predict/eval inference splits
+inference_seed: 42

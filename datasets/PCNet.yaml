@@ -1,0 +1,36 @@
+name: PCNet
+root: ../data/PCNet
+train: []
+test:
+  10k_1.0pct:
+    input: noisy/test/10000_poisson/0.010
+    clean: pointclouds/test/10000_poisson
+    mesh: meshes/test
+  10k_2.0pct:
+    input: noisy/test/10000_poisson/0.020
+    clean: pointclouds/test/10000_poisson
+    mesh: meshes/test
+  10k_2.5pct:
+    input: noisy/test/10000_poisson/0.025
+    clean: pointclouds/test/10000_poisson
+    mesh: meshes/test
+  10k_3.0pct:
+    input: noisy/test/10000_poisson/0.030
+    clean: pointclouds/test/10000_poisson
+    mesh: meshes/test
+  50k_1.0pct:
+    input: noisy/test/50000_poisson/0.010
+    clean: pointclouds/test/50000_poisson
+    mesh: meshes/test
+  50k_2.0pct:
+    input: noisy/test/50000_poisson/0.020
+    clean: pointclouds/test/50000_poisson
+    mesh: meshes/test
+  50k_2.5pct:
+    input: noisy/test/50000_poisson/0.025
+    clean: pointclouds/test/50000_poisson
+    mesh: meshes/test
+  50k_3.0pct:
+    input: noisy/test/50000_poisson/0.030
+    clean: pointclouds/test/50000_poisson
+    mesh: meshes/test

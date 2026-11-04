@@ -1,0 +1,17 @@
+# Recreate the training environment:
+#   conda env create -f environment.yaml
+#   conda activate flow2surf
+# Jittor compiles CUDA kernels at runtime and requires a compatible NVIDIA driver
+# and C++ compiler (g++); see README.md.
+name: flow2surf
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - jittor==1.3.10.0
+      - numpy==1.26.4
+      - scipy==1.17.1
+      - trimesh==4.12.2
+      - pyyaml==6.0.3
